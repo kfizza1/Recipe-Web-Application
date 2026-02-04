@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #e5e5e5;
+    color: #29282e;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #fcbf5e;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #d18937;
+}
+
+/* ================= PRELOADER ================= */
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: #fcbf5e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+
+#preloader h1 {
+    font-size: 48px;
+    color: #29282e;
+    letter-spacing: 6px;
+    animation: fade 1.5s infinite;
+}
+
+#preloader.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+@keyframes fade {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #ffffff;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px #0000001a;
+    padding-bottom: 1rem;
+}
+
+.hero {
+    background: linear-gradient(180deg, #fca311, #fb8500);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 10px #00000033;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    font-weight: 300;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+#search,
+#category {
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#search:focus,
+#category:focus {
+    border-color: #fca311;
+    outline: none;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.recipe-card {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px #0000001a;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px #00000033;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.recipe-card .content {
+    padding: 1.5rem;
+}
+
+.recipe-card h3 {
+    margin: 0 0 0.5rem 1rem;
+    font-size: 1.5rem;
+    color: #fca311;
+}
+
+.recipe-card p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.recipe-card .ingredients,
+.recipe-card .instructions {
+    display: none;
+    /* Hidden by default, toggle on click */
+}
+
+.recipe-card.expanded {
+    grid-column: 1 / -1;
+}
+
+.recipe-card.expanded .ingredients,
+.recipe-card.expanded .instructions {
+    display: block;
+}
+
+footer {
+    background: #14213d;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: #000000b3;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: #ffffff;
+    max-width: 800px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 25px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 0.5rem;
+    }
+
+    .hero h1 {
+        font-size: 1.7rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    #search,
+    #category {
+        padding: 0.5rem 1rem;
+        font-size: 0.7rem;
+    }
+
+    main {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 1rem;
+    }
+
+    #recipe-list {
+        gap: 7px;
+    }
+
+    .recipe-card .content {
+        padding: 10px;
+    }
+
+    .recipe-card img {
+        height: 120px;
+    }
+
+    .recipe-card h3 {
+        font-size: 12px;
+    }
+
+    .recipe-card p {
+        font-size: 0.8rem;
+    }
+}

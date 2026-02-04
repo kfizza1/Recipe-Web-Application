@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Cook - Delicious Recipes</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="cook-book.png" type="image/x-icon">
+</head>
+<body>
+    <div id="preloader">
+        <h1>let's cook<span>........</span></h1>
+    </div>
+    <header>
+        <div class="hero">
+            <h1>Discover Amazing Recipes</h1>
+            <p>Explore, search, and cook delicious meals from around the world.</p>
+        </div>
+        <nav>
+            <input type="text" id="search" placeholder="Search recipes...">
+            <select id="category">
+                <option value="">All Categories</option>
+                <option value="Beef">Beef</option>
+                <option value="Chicken">Chicken</option>
+                <option value="Vegetarian">Vegetarian</option>
+                <option value="Dessert">Dessert</option>
+            </select>
+        </nav>
+    </header>
+    <main id="recipe-list">
+        <!-- Recipes will be fetched and displayed here -->
+    </main>
+    <footer>
+        <p>&copy; 2023 Delicious Recipes. Built with love for food enthusiasts.</p>
+    </footer>
+    <div id="recipe-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
